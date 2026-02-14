@@ -6,8 +6,8 @@
 #' @return A dataframe of the FCS infile
 #' @export
 read_fcs <- function(fcs_path) {
-  fcs_data_raw <- flowCore::read.FCSread.FCS(fcs_path,
-                                             truncate_max_range = FALSE)
+  fcs_data_raw <- flowCore::read.FCS(fcs_path,
+                                     truncate_max_range = FALSE)
 
   fcs_data <- as.data.frame(fcs_data_raw@exprs)
 
