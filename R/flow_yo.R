@@ -228,7 +228,7 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       ggplot2::geom_polygon(ggplot2::aes(filter_gate$x, filter_gate$y), fill = NA, color = "black") +
-      gggplot2::eom_text(ggplot2::aes(max_x * 0.9,
+      ggplot2::geom_text(ggplot2::aes(max_x * 0.9,
                                       max_y * 0.9,
                                       label = paste0("inside: ",
                                                      round(100 * sum(fcs_data[[gate_name]] == "inside")/nrow(fcs_data), 0), "%",
