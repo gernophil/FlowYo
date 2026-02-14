@@ -15,4 +15,4 @@ imports:
     secr,
     ggplot2,
     RColorBrewer,
-    ostendorflab
+    # ostendorflab
