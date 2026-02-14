@@ -215,7 +215,7 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       # scale_y_log10(limits = c(1, max(fcs_data[[y]])))
-      scale_y_log10(limits = c(1, max_y))
+      ggplot2::scale_y_log10(limits = c(1, max_y))
   } else {
     fcs_plot <-
       fcs_plot +
