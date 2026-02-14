@@ -182,17 +182,17 @@ gate_fcs <- function(fcs_data,
 
     fcs_plot <-
       fcs_plot +
-      ggplot2::geom_hex(aes(fcs_data[[x]], fcs_data[[y]]), bins = 256) +
+      ggplot2::geom_hex(ggplot2::aes(fcs_data[[x]], fcs_data[[y]]), bins = 256) +
       ggplot2::scale_fill_gradientn(colours = rev(brewer.pal(11, "Spectral")))
 
   } else if (plot_type == "density") {
 
     fcs_plot <-
       fcs_plot +
-      ggplot2::geom_point(aes(fcs_data[[x]], fcs_data[[y]]),
+      ggplot2::geom_point(ggplot2::aes(fcs_data[[x]], fcs_data[[y]]),
                           size = .1,
                           color = "lightgrey") +
-      ggplot2::geom_density_2d(aes(fcs_data[[x]], fcs_data[[y]]),
+      ggplot2::geom_density_2d(ggplot2::aes(fcs_data[[x]], fcs_data[[y]]),
                                color = "black")
 
   } else {
@@ -227,14 +227,14 @@ gate_fcs <- function(fcs_data,
 
     fcs_plot <-
       fcs_plot +
-      ggplot2::geom_polygon(aes(filter_gate$x, filter_gate$y), fill = NA, color = "black") +
-      gggplot2::eom_text(aes(max_x * 0.9,
-                             max_y * 0.9,
-                             label = paste0("inside: ",
-                                            round(100 * sum(fcs_data[[gate_name]] == "inside")/nrow(fcs_data), 0), "%",
-                                            "\n",
-                                            "outside: ",
-                                            round(100 * sum(fcs_data[[gate_name]] == "outside")/nrow(fcs_data), 0), "%")),
+      ggplot2::geom_polygon(ggplot2::aes(filter_gate$x, filter_gate$y), fill = NA, color = "black") +
+      gggplot2::eom_text(ggplot2::aes(max_x * 0.9,
+                                      max_y * 0.9,
+                                      label = paste0("inside: ",
+                                                     round(100 * sum(fcs_data[[gate_name]] == "inside")/nrow(fcs_data), 0), "%",
+                                                     "\n",
+                                                     "outside: ",
+                                                     round(100 * sum(fcs_data[[gate_name]] == "outside")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1)
 
@@ -243,13 +243,13 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       ggplot2::geom_hline(yintercept = filter_gate) +
-      ggplot2::geom_text(aes(max_x * 0.9,
-                             max_y * 0.9,
-                             label = paste0("higher: ",
-                                            round(100 * sum(fcs_data[[gate_name]] == "higher")/nrow(fcs_data), 0), "%",
-                                            "\n",
-                                            "lower_or_equal: ",
-                                            round(100 * sum(fcs_data[[gate_name]] == "lower_or_equal")/nrow(fcs_data), 0), "%")),
+      ggplot2::geom_text(ggplot2::aes(max_x * 0.9,
+                                      max_y * 0.9,
+                                      label = paste0("higher: ",
+                                                     round(100 * sum(fcs_data[[gate_name]] == "higher")/nrow(fcs_data), 0), "%",
+                                                     "\n",
+                                                     "lower_or_equal: ",
+                                                     round(100 * sum(fcs_data[[gate_name]] == "lower_or_equal")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1)
 
@@ -258,13 +258,13 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       ggplot2::geom_vline(xintercept = filter_gate) +
-      ggplot2::geom_text(aes(max_x * 0.9,
-                             max_y * 0.9,
-                             label = paste0("bigger: ",
-                                            round(100 * sum(fcs_data[[gate_name]] == "bigger")/nrow(fcs_data), 0), "%",
-                                            "\n",
-                                            "smaller_or_equal: ",
-                                            round(100 * sum(fcs_data[[gate_name]] == "smaller_or_equal")/nrow(fcs_data), 0), "%")),
+      ggplot2::geom_text(ggplot2::aes(max_x * 0.9,
+                                      max_y * 0.9,
+                                      label = paste0("bigger: ",
+                                                     round(100 * sum(fcs_data[[gate_name]] == "bigger")/nrow(fcs_data), 0), "%",
+                                                     "\n",
+                                                     "smaller_or_equal: ",
+                                                     round(100 * sum(fcs_data[[gate_name]] == "smaller_or_equal")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1)
 
@@ -274,23 +274,23 @@ gate_fcs <- function(fcs_data,
       fcs_plot +
       ggplot2::geom_hline(yintercept = filter_gate$y) +
       ggplot2::geom_vline(xintercept = filter_gate$x) +
-      ggplot2::geom_text(aes(max_x * 0.9,
-                             max_y * 0.7,
-                             label = paste0("top_left: ",
-                                            round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "smaller_or_equal" &
-                                                              fcs_data[[paste0(gate_name, "_y")]] == "higher")/nrow(fcs_data), 0), "%",
-                                            "\n",
-                                            "top_right: ",
-                                            round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "bigger" &
-                                                              fcs_data[[paste0(gate_name, "_y")]] == "higher")/nrow(fcs_data), 0), "%",
-                                            "\n",
-                                            "bottom_left: ",
-                                            round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "smaller_or_equal" &
-                                                              fcs_data[[paste0(gate_name, "_y")]] == "lower_or_equal")/nrow(fcs_data), 0), "%",
-                                            "\n",
-                                            "bottom_right: ",
-                                            round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "bigger" &
-                                                              fcs_data[[paste0(gate_name, "_y")]] == "lower_or_equal")/nrow(fcs_data), 0), "%")),
+      ggplot2::geom_text(ggplot2::aes(max_x * 0.9,
+                                      max_y * 0.7,
+                                      label = paste0("top_left: ",
+                                                     round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "smaller_or_equal" &
+                                                                       fcs_data[[paste0(gate_name, "_y")]] == "higher")/nrow(fcs_data), 0), "%",
+                                                     "\n",
+                                                     "top_right: ",
+                                                     round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "bigger" &
+                                                                       fcs_data[[paste0(gate_name, "_y")]] == "higher")/nrow(fcs_data), 0), "%",
+                                                     "\n",
+                                                     "bottom_left: ",
+                                                     round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "smaller_or_equal" &
+                                                                       fcs_data[[paste0(gate_name, "_y")]] == "lower_or_equal")/nrow(fcs_data), 0), "%",
+                                                     "\n",
+                                                     "bottom_right: ",
+                                                     round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "bigger" &
+                                                                       fcs_data[[paste0(gate_name, "_y")]] == "lower_or_equal")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1)
 
