@@ -183,7 +183,7 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       ggplot2::geom_hex(ggplot2::aes(fcs_data[[x]], fcs_data[[y]]), bins = 256) +
-      ggplot2::scale_fill_gradientn(colours = rev(brewer.pal(11, "Spectral")))
+      ggplot2::scale_fill_gradientn(colours = rev(RColorBrewer::brewer.pal(11, "Spectral")))
 
   } else if (plot_type == "density") {
 
