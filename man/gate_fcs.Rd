@@ -16,8 +16,10 @@ gate_fcs(
   filter_type = "inside",
   log_x = FALSE,
   log_y = FALSE,
-  max_x = 262143,
-  max_y = 262143,
+  min_x = -1000,
+  min_y = -1000,
+  max_x = 270000,
+  max_y = 270000,
   plot_type = "hexagon"
 )
 }

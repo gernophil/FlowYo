@@ -30,6 +30,8 @@ read_fcs <- function(fcs_path) {
 #' @param string for the filter type
 #' @param logical if x axis should be logarithmic
 #' @param logical if y axis should be logarithmic
+#' @param numeric for the min x value of
+#' @param numeric for the min y value of
 #' @param numeric for the max x value of
 #' @param numeric for the max y value of
 #' @param string for the plot type
@@ -48,8 +50,10 @@ gate_fcs <- function(fcs_data,
                      # additional_gates = NULL,
                      log_x = FALSE,
                      log_y = FALSE,
-                     max_x = 262143,
-                     max_y = 262143,
+                     min_x = -1000,
+                     min_y = -1000,
+                     max_x = 270000,
+                     max_y = 270000,
                      plot_type = "hexagon") {
 
   if (gate_type == "polygon") {
