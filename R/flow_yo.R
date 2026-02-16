@@ -181,20 +181,20 @@ gate_fcs <- function(fcs_data,
     ggplot2::ylab(y) +
     ggplot2::ggtitle(name) +
     ggplot2::theme(
-      # text = element_text(family = "Helvetica-Narrow"),
-      panel.grid = element_blank(),
-      axis.line = element_line(linewidth = custom_linewidth),
-      axis.ticks = element_line(linewidth = custom_linewidth),
-      axis.ticks.length = unit(0.075, "cm"),
-      # axis.text.x = element_text(hjust = 1),
-      axis.title = element_text(size = 6),
-      axis.text = element_text(size = 5, colour = "black"),
-      plot.title = element_text(size = 7, hjust = 0.5),
-      panel.background = element_blank(),
-      legend.text = element_text(size = 5),
-      legend.title = element_blank(),
-      # legend.margin = margin(t = -1, r = 0, l = -0.3, unit = 'cm'),
-      legend.key.size = unit(0.25, "line") # taken from ostendorflab::theme_custom2()
+      # text = ggplot2::element_text(family = "Helvetica-Narrow"),
+      panel.grid = ggplot2::element_blank(),
+      axis.line = ggplot2::element_line(linewidth = 5/8 * 72.27 / 96 * 0.5),
+      axis.ticks = ggplot2::element_line(linewidth = 5/8 * 72.27 / 96 * 0.5),
+      axis.ticks.length = ggplot2::unit(0.075, "cm"),
+      # axis.text.x = ggplot2::element_text(hjust = 1),
+      axis.title = ggplot2::element_text(size = 6),
+      axis.text = ggplot2::element_text(size = 5, colour = "black"),
+      plot.title = ggplot2::element_text(size = 7, hjust = 0.5),
+      panel.background = ggplot2::element_blank(),
+      legend.text = ggplot2::element_text(size = 5),
+      legend.title = ggplot2::element_blank(),
+      # legend.margin = ggplot2::margin(t = -1, r = 0, l = -0.3, ggplot2::unit = 'cm'),
+      legend.key.size = ggplot2::unit(0.25, "line") # taken from ostendorflab::theme_custom2()
     )
 
   if (plot_type == "hexagon") {
