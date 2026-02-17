@@ -221,25 +221,25 @@ gate_fcs <- function(fcs_data,
   if (log_x == TRUE) {
     fcs_plot <-
       fcs_plot +
-      # scale_x_log10(limits = c(1, max(fcs_data[[x]])))
-      ggplot2::scale_x_log10(limits = c(1, max_x))
+      # scale_x_log10(expand = c(0, 0), limits = c(min(fcs_data[[x]]), max(fcs_data[[x]])))
+      ggplot2::scale_x_log10(expand = c(0, 0), limits = c(min_x, max_x))
   } else {
     fcs_plot <-
       fcs_plot +
-      # scale_x_continuous(limits = c(0, max(fcs_data[[x]])))
-      ggplot2::scale_x_continuous(limits = c(0, max_x))
+      # scale_x_continuous(expand = c(0, 0), limits = c(min(fcs_data[[x]]), max(fcs_data[[x]])))
+      ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(min_x, max_x))
   }
 
   if (log_y == TRUE) {
     fcs_plot <-
       fcs_plot +
-      # scale_y_log10(limits = c(1, max(fcs_data[[y]])))
-      ggplot2::scale_y_log10(limits = c(1, max_y))
+      # scale_y_log10(expand = c(0, 0), limits = c(min(fcs_data[[y]]), max(fcs_data[[y]])))
+      ggplot2::scale_y_log10(expand = c(0, 0), limits = c(min_y, max_y))
   } else {
     fcs_plot <-
       fcs_plot +
-      # scale_y_continuous(limits = c(0, max(fcs_data[[y]])))
-      ggplot2::scale_y_continuous(limits = c(0, max_y))
+      # scale_y_continuous(expand = c(0, 0), limits = c(min(fcs_data[[y]]), max(fcs_data[[y]])))
+      ggplot2::scale_y_continuous(expand = c(0, 0), limits = c(min_y, max_y))
   }
 
   if (gate_type == "polygon") {
