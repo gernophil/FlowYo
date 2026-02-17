@@ -35,6 +35,7 @@ read_fcs <- function(fcs_path) {
 #' @param numeric for the max x value of
 #' @param numeric for the max y value of
 #' @param string for the plot type
+#' @param logical if plot should be printed
 #' @return A list containing the original dataframe with information about the
 #' gate, a gated dataframe and a plot of the gating
 #' @export
@@ -54,7 +55,8 @@ gate_fcs <- function(fcs_data,
                      min_y = -1000,
                      max_x = 270000,
                      max_y = 270000,
-                     plot_type = "hexagon") {
+                     plot_type = "hexagon",
+                     print_plot = FALSE) {
 
   if (gate_type == "polygon") {
 
@@ -315,7 +317,11 @@ gate_fcs <- function(fcs_data,
 
   }
 
-  print(fcs_plot)
+  if (print_plot) {
+
+    print(fcs_plot)
+
+  }
 
   return(list("ungated" = fcs_data,
               "gated" = fcs_data_gated,

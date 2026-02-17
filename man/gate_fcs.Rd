@@ -20,7 +20,8 @@ gate_fcs(
   min_y = -1000,
   max_x = 270000,
   max_y = 270000,
-  plot_type = "hexagon"
+  plot_type = "hexagon",
+  print_plot = FALSE
 )
 }
 \arguments{
@@ -28,11 +29,11 @@ gate_fcs(
 
 \item{gate}{which can be a dataframe, a list or a number}
 
-\item{logical}{if y axis should be logarithmic}
-
 \item{numeric}{for the max y value of}
 
 \item{string}{for the plot type}
+
+\item{logical}{if plot should be printed}
 }
 \value{
 A list containing the original dataframe with information about the
