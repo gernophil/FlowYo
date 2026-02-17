@@ -49,8 +49,8 @@ gate_fcs <- function(fcs_data,
                      gate_name = "gate",
                      filter_type = "inside",
                      # additional_gates = NULL,
-                     log_x = FALSE,
-                     log_y = FALSE,
+                     transform_x = FALSE,
+                     transform_y = FALSE,
                      min_x = -1000,
                      min_y = -1000,
                      max_x = 270000,
@@ -224,7 +224,7 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       # scale_x_log10(expand = c(0, 0), limits = c(min(fcs_data[[x]]), max(fcs_data[[x]])))
-      ggplot2::scale_x_log10(expand = c(0, 0), limits = c(min_x, max_x))
+      ggcyto::scale_x_flowjo_biexp(expand = c(0, 0), limits = c(min_x, max_x))
   } else {
     fcs_plot <-
       fcs_plot +
@@ -236,7 +236,7 @@ gate_fcs <- function(fcs_data,
     fcs_plot <-
       fcs_plot +
       # scale_y_log10(expand = c(0, 0), limits = c(min(fcs_data[[y]]), max(fcs_data[[y]])))
-      ggplot2::scale_y_log10(expand = c(0, 0), limits = c(min_y, max_y))
+      ggcyto::scale_y_flowjo_biexp(expand = c(0, 0), limits = c(min_y, max_y))
   } else {
     fcs_plot <-
       fcs_plot +
