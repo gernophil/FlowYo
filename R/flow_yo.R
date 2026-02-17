@@ -220,7 +220,7 @@ gate_fcs <- function(fcs_data,
     stop("Invalid plot type!")
   }
 
-  if (log_x == TRUE) {
+  if (transform_x == TRUE) {
     fcs_plot <-
       fcs_plot +
       # scale_x_log10(expand = c(0, 0), limits = c(min(fcs_data[[x]]), max(fcs_data[[x]])))
@@ -232,7 +232,7 @@ gate_fcs <- function(fcs_data,
       ggplot2::scale_x_continuous(expand = c(0, 0), limits = c(min_x, max_x))
   }
 
-  if (log_y == TRUE) {
+  if (transform_y == TRUE) {
     fcs_plot <-
       fcs_plot +
       # scale_y_log10(expand = c(0, 0), limits = c(min(fcs_data[[y]]), max(fcs_data[[y]])))
