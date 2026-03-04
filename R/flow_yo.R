@@ -258,7 +258,8 @@ gate_fcs <- function(fcs_data,
                                                      round(100 * sum(fcs_data[[gate_name]] == "outside")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1,
-                         vjust = 1)
+                         vjust = 1,
+                         size = 2.5)
 
   } else if (gate_type == "threshold_y") {
 
@@ -270,11 +271,12 @@ gate_fcs <- function(fcs_data,
                                       label = paste0("higher: ",
                                                      round(100 * sum(fcs_data[[gate_name]] == "higher")/nrow(fcs_data), 0), "%",
                                                      "\n",
-                                                     "lower_or_equal: ",
+                                                     "lower or equal: ",
                                                      round(100 * sum(fcs_data[[gate_name]] == "lower_or_equal")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1,
-                         vjust = 1)
+                         vjust = 1,
+                         size = 2.5)
 
   } else if (gate_type == "threshold_x") {
 
@@ -286,11 +288,12 @@ gate_fcs <- function(fcs_data,
                                       label = paste0("bigger: ",
                                                      round(100 * sum(fcs_data[[gate_name]] == "bigger")/nrow(fcs_data), 0), "%",
                                                      "\n",
-                                                     "smaller_or_equal: ",
+                                                     "smaller or equal: ",
                                                      round(100 * sum(fcs_data[[gate_name]] == "smaller_or_equal")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1,
-                         vjust = 1)
+                         vjust = 1,
+                         size = 2.5)
 
   } else if (gate_type == "quadrant") {
 
@@ -300,24 +303,25 @@ gate_fcs <- function(fcs_data,
       ggplot2::geom_vline(xintercept = filter_gate$x) +
       ggplot2::geom_text(ggplot2::aes(max_x * 0.9,
                                       max_y * 0.9,
-                                      label = paste0("top_left: ",
+                                      label = paste0("top left: ",
                                                      round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "smaller_or_equal" &
                                                                        fcs_data[[paste0(gate_name, "_y")]] == "higher")/nrow(fcs_data), 0), "%",
                                                      "\n",
-                                                     "top_right: ",
+                                                     "top right: ",
                                                      round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "bigger" &
                                                                        fcs_data[[paste0(gate_name, "_y")]] == "higher")/nrow(fcs_data), 0), "%",
                                                      "\n",
-                                                     "bottom_left: ",
+                                                     "bottom left: ",
                                                      round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "smaller_or_equal" &
                                                                        fcs_data[[paste0(gate_name, "_y")]] == "lower_or_equal")/nrow(fcs_data), 0), "%",
                                                      "\n",
-                                                     "bottom_right: ",
+                                                     "bottom right: ",
                                                      round(100 * sum(fcs_data[[paste0(gate_name, "_x")]] == "bigger" &
                                                                        fcs_data[[paste0(gate_name, "_y")]] == "lower_or_equal")/nrow(fcs_data), 0), "%")),
                          color = "black",
                          hjust = 1,
-                         vjust = 1)
+                         vjust = 1,
+                         size = 2.5)
 
   }
 
